@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using ToolTest.Models.ValueObjects;
+using ToolTest.Models.Entity;
 
 
 namespace ToolTest.Views
