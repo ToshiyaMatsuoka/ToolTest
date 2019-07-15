@@ -16,7 +16,7 @@ namespace ToolTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.Menu());
+            Application.Run(new Views.FrmEnemy());
         }
     }
 }

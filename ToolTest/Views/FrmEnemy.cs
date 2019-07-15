@@ -36,6 +36,13 @@ namespace ToolTest.Views
                 enemy.IsBoss = Convert.ToBoolean(reader.GetString("isBoss"));
                 enemy.Hp = Convert.ToInt32(reader.GetString("Hp"));
                 enemy.Mp = Convert.ToInt32(reader.GetString("Mp"));
+                //enemy.Atk = Convert.ToInt32(reader.GetString("Atk"));
+                //enemy.Def = Convert.ToInt32(reader.GetString("Def"));
+                //enemy.Int = Convert.ToInt32(reader.GetString("Int"));
+                //enemy.Mnd = Convert.ToInt32(reader.GetString("Mnd"));
+                //enemy.Spd = Convert.ToInt32(reader.GetString("Spd"));
+                //enemy.Lvl = Convert.ToInt32(reader.GetString("Lvl"));
+                //enemy.Exp = Convert.ToInt32(reader.GetString("Exp"));
                 list.Add(enemy);
             }
             Conection.DisConnectDB();
@@ -54,13 +61,20 @@ namespace ToolTest.Views
                     command.Append($",isBoss = { row.IsBoss }");
                     command.Append($",Hp = { row.Hp }");
                     command.Append($",Mp = { row.Mp }");
+                    command.Append($",Atk = { row.Atk }");
+                    command.Append($",Def = { row.Def }");
+                    command.Append($",`Int` = { row.Int }");
+                    command.Append($",Mnd = { row.Mnd }");
+                    command.Append($",Spd = { row.Spd }");
+                    command.Append($",Lvl = { row.Lvl }");
+                    command.Append($",Exp = { row.Exp }");
                     command.Append($" where id = { row.Id };");
                     MySqlCommand cmd = new MySqlCommand(command.ToString(), con);
                     cmd.ExecuteNonQuery();
                 }
                 else
                 {
-                    command.Append("insert into enemy values ( @id, @name, @isBoss, @Hp, @Mp )");
+                    command.Append("insert into enemy values ( @id, @name, @isBoss, @Hp, @Mp, @Atk, @Def, @Int, @Mnd, @Spd, @Lvl, @Exp )");
                     MySqlCommand cmd =
                         new MySqlCommand(command.ToString(), con);
                     cmd.Parameters.Add(new MySqlParameter("@id", row.Id));
@@ -68,6 +82,13 @@ namespace ToolTest.Views
                     cmd.Parameters.Add(new MySqlParameter("@isBoss", Convert.ToByte(row.IsBoss)));
                     cmd.Parameters.Add(new MySqlParameter("@Hp", row.Hp));
                     cmd.Parameters.Add(new MySqlParameter("@Mp", row.Mp));
+                    cmd.Parameters.Add(new MySqlParameter("@Atk", row.Atk));
+                    cmd.Parameters.Add(new MySqlParameter("@Def", row.Def));
+                    cmd.Parameters.Add(new MySqlParameter("@`Int`", row.Int));
+                    cmd.Parameters.Add(new MySqlParameter("@Mnd", row.Mnd));
+                    cmd.Parameters.Add(new MySqlParameter("@Spd", row.Spd));
+                    cmd.Parameters.Add(new MySqlParameter("@Lvl", row.Lvl));
+                    cmd.Parameters.Add(new MySqlParameter("@Exp", row.Exp));
                     cmd.ExecuteNonQuery();
                 }
             }
