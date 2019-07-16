@@ -24,6 +24,7 @@ namespace ToolTest.Views
         private void FrmEnemy_Load(object sender, EventArgs e)
         {
             this.DataGridViewEnemy.DataSource = list;
+            this.DataGridViewEnemy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             var connection = Conection.ConnectDB();
             var cmd = new MySqlCommand("select * from enemy;", connection);
             var reader = cmd.ExecuteReader();
@@ -31,18 +32,18 @@ namespace ToolTest.Views
             while (reader.Read())
             {
                 var enemy = new EnemyParam();
-                enemy.Id = Convert.ToInt32(reader.GetString("Id"));
-                enemy.Name = reader.GetString("name");
-                enemy.IsBoss = Convert.ToBoolean(reader.GetString("isBoss"));
-                enemy.Hp = Convert.ToInt32(reader.GetString("Hp"));
-                enemy.Mp = Convert.ToInt32(reader.GetString("Mp"));
-                //enemy.Atk = Convert.ToInt32(reader.GetString("Atk"));
-                //enemy.Def = Convert.ToInt32(reader.GetString("Def"));
-                //enemy.Int = Convert.ToInt32(reader.GetString("Int"));
-                //enemy.Mnd = Convert.ToInt32(reader.GetString("Mnd"));
-                //enemy.Spd = Convert.ToInt32(reader.GetString("Spd"));
-                //enemy.Lvl = Convert.ToInt32(reader.GetString("Lvl"));
-                //enemy.Exp = Convert.ToInt32(reader.GetString("Exp"));
+                enemy.Id = DBNull.Value != reader["Id"] ? Convert.ToInt32(reader.GetString("Id")) : 0;
+                enemy.Name = DBNull.Value != reader["name"] ? reader.GetString("name") : "";
+                enemy.IsBoss = DBNull.Value != reader["isBoss"] ? Convert.ToBoolean(reader.GetString("isBoss")) : false;
+                enemy.Hp = DBNull.Value != reader["Hp"] ? Convert.ToInt32(reader.GetString("Hp")) : 0;
+                enemy.Mp = DBNull.Value != reader["Mp"] ? Convert.ToInt32(reader.GetString("Mp")) : 0;
+                enemy.Atk = DBNull.Value != reader["Atk"] ? Convert.ToInt32(reader.GetString("Atk")) : 0;
+                enemy.Def = DBNull.Value != reader["Def"] ? Convert.ToInt32(reader.GetString("Def")) : 0;
+                enemy.Int = DBNull.Value != reader["Int"] ? Convert.ToInt32(reader.GetString("Int")) : 0;
+                enemy.Mnd = DBNull.Value != reader["Mnd"] ? Convert.ToInt32(reader.GetString("Mnd")) : 0;
+                enemy.Spd = DBNull.Value != reader["Spd"] ? Convert.ToInt32(reader.GetString("Spd")) : 0;
+                enemy.Lvl = DBNull.Value != reader["Lvl"] ? Convert.ToInt32(reader.GetString("Lvl")) : 0;
+                enemy.Exp = DBNull.Value != reader["Exp"] ? Convert.ToInt32(reader.GetString("Exp")) : 0;
                 list.Add(enemy);
             }
             Conection.DisConnectDB();
@@ -74,7 +75,7 @@ namespace ToolTest.Views
                 }
                 else
                 {
-                    command.Append("insert into enemy values ( @id, @name, @isBoss, @Hp, @Mp, @Atk, @Def, @Int, @Mnd, @Spd, @Lvl, @Exp )");
+                    command.Append("insert into enemy values ( @id, @name, @isBoss, @Hp, @Mp, @Atk, @Def, @`Int`, @Mnd, @Spd, @Lvl, @Exp )");
                     MySqlCommand cmd =
                         new MySqlCommand(command.ToString(), con);
                     cmd.Parameters.Add(new MySqlParameter("@id", row.Id));

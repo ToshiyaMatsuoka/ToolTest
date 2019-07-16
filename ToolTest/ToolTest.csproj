@@ -71,29 +71,10 @@
     <Compile Include="Views\FrmEnemy.Designer.cs">
       <DependentUpon>FrmEnemy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmPlayer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmPlayer.Designer.cs">
-      <DependentUpon>FrmPlayer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entity\PlayerParam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Views\FrmEnemy.resx">
       <DependentUpon>FrmEnemy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmPlayer.resx">
-      <DependentUpon>FrmPlayer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
