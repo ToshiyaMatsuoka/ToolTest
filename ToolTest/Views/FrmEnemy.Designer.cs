@@ -31,6 +31,7 @@
             this.DataGridViewEnemy = new System.Windows.Forms.DataGridView();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnLoad = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEnemy)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,11 +65,23 @@
             this.BtnLoad.UseVisualStyleBackColor = true;
             this.BtnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
             // 
+            // btnAbout
+            // 
+            this.btnAbout.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAbout.Location = new System.Drawing.Point(17, 499);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(69, 53);
+            this.btnAbout.TabIndex = 3;
+            this.btnAbout.Text = "このアプリについて";
+            this.btnAbout.UseVisualStyleBackColor = false;
+            this.btnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
+            // 
             // FrmEnemy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 599);
+            this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.BtnLoad);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.DataGridViewEnemy);
@@ -85,5 +98,6 @@
         private System.Windows.Forms.DataGridView DataGridViewEnemy;
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Button BtnLoad;
+        private System.Windows.Forms.Button btnAbout;
     }
 }

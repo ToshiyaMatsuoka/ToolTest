@@ -138,5 +138,11 @@ namespace ToolTest.Views
                 con.Close();
             }
         }
+
+        private void BtnAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("テーブルの中身がNULLだった場合のNULLチェック" +
+                "、\nPKがすでにあるかないか検索してINSERTとUPDATEを切り替えるようにしました。", "このアプリについて");
+        }
     }
 }
